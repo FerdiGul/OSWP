@@ -1,0 +1,8 @@
+# Basic crackink methods
+
+  aircrack-ng <file_name>
+  or
+  aircrack-ng <file_name> -w \usr\share\john\password.lst
+  
+  
+  
