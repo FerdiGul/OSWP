@@ -1,4 +1,4 @@
-CODE	    ATTACK NAME
+CODE	   ATTACK NAME
  0	   Deauthentication
  1	   Fake Authentication
  2	   Interactive Packet Replay
