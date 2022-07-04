@@ -1,1 +1,27 @@
 
+## WEP Connection to AP ##
+
+  $ wpa_supplicant -c wep_supplicant.conf -i wlan0
+
+  network={
+           ssid="FGMania"
+           key_mgmt=NONE
+           wep_key0=<key>
+           #wep_key1=<other_key>
+           wep_tx_keyidx=0
+          {
+
+
+## WPA/WPA2 Connection to AP ##
+
+  $ wpa_supplicant -c wpa_supplicant.conf -i wlan0
+  
+  network={
+           ssid="EvilCorp"
+           scan_ssid=1
+           psk=<password>
+           key_mgmt=WPA-PSK
+          {
+          
+          
+        
